@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Territoires en mouvement</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Territoires en mouvement</h1>
+    <h2>Geolocalisation</h2>
+    <div id="myLoc"></div>
+    <h2>Fichier Audio</h2>
+    <audio id="myAudio" controls preload="auto">
+      <source src="http://tem.bype.org/audio/com001.mp3" type="audio/mpeg">
+    </audio>
+    <div>
+      <p>Position : <span id="position"></span> s</p>
+      <p>Durée : <span id="duration"></span> s</p>
+      <p>Buffer : <span id="buffer"></span> s</p>
+      <p>Chargement : <span id="load"></span> %</p>
+      <p>Temps passé / restant : <span id="remain"></span> s</p>
+    </div>
+    <h2>Enregistrement</h2>
+  </div>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bower_components/popcorn-js/popcorn.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
