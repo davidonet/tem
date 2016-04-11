@@ -1,4 +1,4 @@
-/*global $:true Popcorn:true twttr:true*/
+/*global $:true Popcorn:true*/
 
 $(function() {
 
@@ -12,8 +12,11 @@ $(function() {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
   } else {
-    $('#myLoc').text = 'Geolocation is not supported by this browser.';
+    $('#myLoc').text('Geolocation is not supported by this browser.');
   }
+
+
+
   var a = document.getElementById('myAudio');
   var c = 1;
   var i = setInterval(function() {
@@ -30,5 +33,18 @@ $(function() {
       clearInterval(i);
     c++;
   }, 1000);
+
+
+
+  var ref = new Firebase("https://tem.firebaseio.com");
+  $.fbLog = function() {
+    ref.authWithOAuthPopup("facebook", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });
+  }
 
 });

@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "bootswatch": "^3.3.6",
-    "popcorn-js": "^1.5.11"
+    "popcorn-js": "^1.5.11",
+    "firebase": "^2.4.2"
   }
 }
