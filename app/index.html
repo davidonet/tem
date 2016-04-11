@@ -24,7 +24,16 @@
       <p>Temps passé / restant : <span id="remain"></span> s</p>
     </div>
     <h2>Enregistrement</h2>
-    <a class="btn btn-primary" href="#" onclick="$.fbLog()">Facebook</a>
+    <div>
+      <a class="btn btn-primary" href="#" onclick="$.fbLog()">Facebook</a>
+      <a class="btn btn-info" href="#" onclick="$.twLog()">Twitter</a>
+    </div>
+    <br/>
+    <div>
+      <p>Info : <span id="dispname" /></p>
+      <p>Log :</p>
+      <ul id="log"></ul>
+    </div>
   </div>
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
