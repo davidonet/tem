@@ -1,17 +1,40 @@
 /*global $:true Popcorn:true*/
 
+function distance(lon1, lat1, lon2, lat2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = (lat2 - lat1).toRad(); // Javascript functions in radians
+  var dLon = (lon2 - lon1).toRad();
+  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c; // Distance in km
+  return d*1000;
+}
+
+/** Converts numeric degrees to radians */
+if (typeof(Number.prototype.toRad) === "undefined") {
+  Number.prototype.toRad = function() {
+    return this * Math.PI / 180;
+  }
+}
+
 $(function() {
   var pos;
 
   function showPosition(position) {
+    console.log(position)
     pos = position;
     var latlon = position.coords.latitude + "," + position.coords.longitude;
     var img_url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + latlon + '&zoom=15&size=400x300&sensor=false';
-
+    var dist = Math.floor(distance(3.8657956,43.6003912,position.coords.longitude,position.coords.latitude));
+    $('#precision').text(position.coords.accuracy);
+    $('#distance').text(dist);
     document.getElementById('myLoc').innerHTML = '<img src="' + img_url + '">';
+
   }
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    navigator.geolocation.getCurrentPosition(showPosition, function() {}, { enableHighAccuracy: true });
   } else {
     $('#myLoc').text('Geolocation is not supported by this browser.');
   }
