@@ -28,7 +28,7 @@ $(function() {
     var latlon = position.coords.latitude + "," + position.coords.longitude;
     var img_url = 'http://maps.googleapis.com/maps/api/staticmap?center=' + latlon + '&zoom=15&size=400x300&sensor=false';
     var dist = Math.floor(distance(3.8657956,43.6003912,position.coords.longitude,position.coords.latitude));
-    $('#precision').text(Math.floor(position.coords.accuracy);
+    $('#precision').text(Math.floor(position.coords.accuracy));
     $('#distance').text(dist);
     document.getElementById('myLoc').innerHTML = '<img src="' + img_url + '">';
 
